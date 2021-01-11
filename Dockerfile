@@ -1,8 +1,8 @@
-FROM centos7:latest
+FROM python
 COPY hello.py / 
+WORKDIR /
 EXPOSE 5000
-CMD ["sudo apt-get -y install python3*"]
-CMD ["sudo pip3 install flask"]
+RUN pip install flask
 ENV FLASK_APP=hello
 ENV FLASK_ENV=development
-CMD ["flask run"]
+CMD ["python", "hello.py"]
